@@ -1,2 +1,2 @@
 # Book-Store
-Shop service allowing to place orders for books
+Shopping service allowing to place orders for books.
