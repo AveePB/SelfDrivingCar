@@ -35,6 +35,9 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private Account account;
 
+    @Column(nullable = false, columnDefinition = "boolean default true")
+    private boolean isActive = true;
+
     @OneToOne
     private Token token;
 
