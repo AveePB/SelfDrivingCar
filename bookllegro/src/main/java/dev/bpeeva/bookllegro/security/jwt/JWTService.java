@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -88,7 +89,6 @@ public class JWTService {
      * @return json web token object
      */
     public JWT generateJWT(User user) {
-
         String rawForm = Jwts.builder()
                 .setSubject(user.getUsername())
                 .setAudience(user.getAccount().toString())
@@ -97,8 +97,17 @@ public class JWTService {
                 .signWith(getSecretKey(), SIGNATURE_ALGORITHM)
                 .compact();
 
-        if (tokenRepo.findByRawForm(rawForm).isEmpty())
+        Optional<Token> token = tokenRepo.findByUser(user);
+        //Refresh old token
+        if (token.isPresent()) {
+            token.get().setRawForm(rawForm);
+            tokenRepo.save(token.get());
+        }
+        //Save new token
+        else {
             tokenRepo.save(new Token(null, rawForm, user));
+        }
+
         return new JWT(rawForm);
     }
 }
