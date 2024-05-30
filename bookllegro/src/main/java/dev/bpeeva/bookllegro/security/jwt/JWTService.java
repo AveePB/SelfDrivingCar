@@ -22,7 +22,7 @@ public class JWTService {
 
     public final static String SECRET_KEY_256BIT = "SvjhiYF8f69sKu2LgXWmsl032ia05TG0T1tVCzJKXs9to/P9SC0A9n3cke0dQOQv";
     public final static SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS256;
-    public final static int TOKEN_LIFESPAN = 5 * 60 * 1000; //5 minutes
+    public final static int TOKEN_LIFESPAN = 1 * 60 * 1000; //1 minute
 
     @Autowired
     private final TokenRepo tokenRepo;
