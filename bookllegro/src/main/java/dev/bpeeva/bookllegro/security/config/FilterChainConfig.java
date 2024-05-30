@@ -1,6 +1,8 @@
 package dev.bpeeva.bookllegro.security.config;
 
+import dev.bpeeva.bookllegro.security.jwt.JWTFilter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -16,7 +18,10 @@ public class FilterChainConfig {
 
     private static final String AUTHZ_ENDPOINT = "/authz/**";
 
+    @Autowired
     private final AuthenticationProvider authenticationProvider;
+    @Autowired
+    private final JWTFilter jwtFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
