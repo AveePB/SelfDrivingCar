@@ -2,6 +2,7 @@ package dev.bpeeva.bookllegro.bll.service;
 
 import dev.bpeeva.bookllegro.db.model.User;
 import dev.bpeeva.bookllegro.db.repo.UserRepo;
+import dev.bpeeva.bookllegro.service.UserService;
 import dev.bpeeva.bookllegro.util.enums.Account;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

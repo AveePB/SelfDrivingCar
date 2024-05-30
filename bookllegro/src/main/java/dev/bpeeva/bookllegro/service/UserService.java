@@ -1,4 +1,4 @@
-package dev.bpeeva.bookllegro.bll.service;
+package dev.bpeeva.bookllegro.service;
 
 import dev.bpeeva.bookllegro.db.model.User;
 import dev.bpeeva.bookllegro.db.repo.UserRepo;
