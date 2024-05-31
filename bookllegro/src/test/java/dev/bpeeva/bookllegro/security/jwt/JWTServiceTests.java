@@ -34,7 +34,7 @@ public class JWTServiceTests {
 
     @BeforeEach
     void setUp() {
-        jessica = userRepo.save(new User(null, "Jessica", "SDFW#$", Account.CUSTOMER, true, null));
+        jessica = userRepo.save(new User(null, "Jessica", "SDFW#$", Account.CUSTOMER, true, null, null));
         jwt = jwtService.generateJWT(jessica);
 
         assertThat(userRepo.count()).isEqualTo(1);
@@ -132,7 +132,7 @@ public class JWTServiceTests {
     void shouldFailToGenerateAJWT() throws Exception {
         try {
             //Act
-            JWT jwt = jwtService.generateJWT(new User(null, "Alex", "#HO@$#@", Account.CUSTOMER, true, null));
+            JWT jwt = jwtService.generateJWT(new User(null, "Alex", "#HO@$#@", Account.CUSTOMER, true, null, null));
             throw new Exception("Should've thrown ar error...");
         }
         //Assert
