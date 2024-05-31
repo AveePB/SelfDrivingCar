@@ -9,21 +9,27 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
-@Table(name = "tokens")
+@Table(name = "assortments")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Token {
+public class Assortment {
 
     @Id
     @GeneratedValue
     private Integer id;
 
-    @Column(nullable = false, unique = true)
-    private String rawForm;
+    @Column(nullable = false)
+    private String title;
 
-    @OneToOne
+    @Column(nullable = false)
+    private Double price;
+
+    @Column(nullable = false)
+    private Integer amount;
+
+    @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private User user;
+    private User seller;
 }

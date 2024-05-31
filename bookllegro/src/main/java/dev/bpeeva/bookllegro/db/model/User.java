@@ -41,6 +41,9 @@ public class User implements UserDetails {
     @OneToOne
     private Token token;
 
+    @OneToMany(mappedBy = "seller")
+    private List<Assortment> assortmentList;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
