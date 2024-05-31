@@ -30,8 +30,8 @@ public class UserServiceTests {
 
     @BeforeEach
     void setUp() {
-        adam = userRepo.save(new User(null, "adam234@gmail.com", "passwd", Account.CUSTOMER, true, null));
-        ania = userRepo.save(new User(null, "an14@gmail.com", "dwssap", Account.SELLER, true, null));
+        adam = userRepo.save(new User(null, "adam234@gmail.com", "passwd", Account.CUSTOMER, true, null, null));
+        ania = userRepo.save(new User(null, "an14@gmail.com", "dwssap", Account.SELLER, true, null, null));
     }
 
     @Test
@@ -67,8 +67,8 @@ public class UserServiceTests {
     @Test
     void shouldSuccessfullySaveAUser() {
         //Arrange
-        User user = new User(null, "x4v1er@onet.pl", "XDFOHIW#", Account.SELLER, true, null);
-        User user2 = new User(null, "zv1er@wp.pl", "Xagsgasdg#$asHIW#", Account.CUSTOMER, true, null);
+        User user = new User(null, "x4v1er@onet.pl", "XDFOHIW#", Account.SELLER, true, null, null);
+        User user2 = new User(null, "zv1er@wp.pl", "Xagsgasdg#$asHIW#", Account.CUSTOMER, true, null, null);
 
         //Act
         Optional<User> savedUser = userService.saveUser(user);
@@ -82,8 +82,8 @@ public class UserServiceTests {
     @Test
     void shouldFailToSaveAUser() {
         //Arrange
-        User user =  new User(null, "adam234@gmail.com", "Xagsgasdg#$asHIW#", Account.CUSTOMER, true, null);
-        User user2 = new User(null, "zv1erwp.pl", "Xagsgasdg#$asHIW#", Account.CUSTOMER, true, null);
+        User user =  new User(null, "adam234@gmail.com", "Xagsgasdg#$asHIW#", Account.CUSTOMER, true, null, null);
+        User user2 = new User(null, "zv1erwp.pl", "Xagsgasdg#$asHIW#", Account.CUSTOMER, true, null, null);
 
         //Act
         Optional<User> savedUser = userService.saveUser(user);

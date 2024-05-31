@@ -4,6 +4,7 @@ import dev.bpeeva.bookllegro.db.model.Assortment;
 import dev.bpeeva.bookllegro.db.model.User;
 import dev.bpeeva.bookllegro.db.repo.AssortmentRepo;
 import dev.bpeeva.bookllegro.util.dto.AssortmentDTO;
+import dev.bpeeva.bookllegro.util.enums.Account;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -77,7 +78,7 @@ public class AssortmentService {
      * @return boolean value
      */
     public boolean updateAmount(String title, Integer amount, User seller) {
-        if (amount <= 0) return false;
+        if (amount < 0) return false;
 
         Optional<Assortment> assortment = assortmentRepo.findByTitleAndSeller(title, seller);
         if (assortment.isEmpty()) return false;
@@ -94,13 +95,19 @@ public class AssortmentService {
      * @param assortment assortment
      * @return optional object
      */
-    public Optional<Assortment> saveAssortment(Assortment assortment) {
+    public boolean saveAssortment(Assortment assortment) {
         //Book title is taken
         if (assortmentRepo.findByTitleAndSeller(assortment.getTitle(),
                 assortment.getSeller()).isPresent())
-            return Optional.empty();
+            return false;
 
-        return Optional.of(assortmentRepo.save(assortment));
+        if (assortment.getPrice() <= 0) return false;
+        if (assortment.getAmount() < 0) return false;
+
+        Assortment savedAssortment = assortmentRepo.save(assortment);
+        if (savedAssortment == null) return false;
+
+        return true;
     }
 
     /**
