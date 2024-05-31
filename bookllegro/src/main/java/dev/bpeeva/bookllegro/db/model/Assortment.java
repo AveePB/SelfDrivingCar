@@ -30,6 +30,6 @@ public class Assortment {
     private Integer amount;
 
     @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     private User seller;
 }
