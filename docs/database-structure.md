@@ -17,3 +17,13 @@ In this project we use an open-source relational database management system know
 | id       | int          | NO   | PRI |
 | raw_form | varchar(255) | NO   | UNI |
 | user_id  | int          | YES  | UNI |
+
+
+## Assortments Table
+| Field     | Type         | Null | Key |
+|-----------|--------------|------|-----|
+| id        | int          | NO   | PRI |
+| amount    | int          | NO   |     |
+| price     | double       | NO   |     |
+| title     | varchar(255) | NO   |     |
+| seller_id | int          | YES  | MUL |
