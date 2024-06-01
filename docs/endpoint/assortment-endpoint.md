@@ -3,7 +3,7 @@ An assortment endpoint is responsible for reading and updating available assortm
 
 
 ## Controller Methods
-Those are methods that are defined in the ***AssortmentController.java*** file.
+Those are methods that are defined in the ***AssortmentController.java*** file. All of those requests must have a JWT from the authz endpoint!!!
 
 ### Recommendations
 - **Url**: /assortment; 

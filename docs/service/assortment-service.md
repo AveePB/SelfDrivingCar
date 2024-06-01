@@ -2,6 +2,7 @@
 Assortment service is used to manage offered products by the bookllegro service.
 
 ## Functions 
+All of those requests must have a JWT from the authz endpoint!!!
 
 ### `List<AssortmentDTO>` getAssortments()
 - **Description**: fetches all assortments on bookllegro;
