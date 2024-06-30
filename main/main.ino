@@ -36,10 +36,9 @@ void setup() {
 }
 
 void loop() {
+  // Simple test to go forward!!
   rb_motor.run(FORWARD);
   rf_motor.run(FORWARD);
   lf_motor.run(FORWARD);
-  lb_motor.run(FORWARD);  
-  
-
+  lb_motor.run(FORWARD);
 }
