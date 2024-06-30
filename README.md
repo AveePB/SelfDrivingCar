@@ -1,2 +1,1 @@
-# Book-Store
-Shopping service allowing to place orders for books.
+# Obstacle Avoiding Car Using Arduino
