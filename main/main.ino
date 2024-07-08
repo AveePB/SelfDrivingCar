@@ -1,5 +1,6 @@
 #include "MotorControl.h"
 #include <AFMotor.h>
+#include <NewPing.h>
 #include <Servo.h>
 
 // DC Motor pins
@@ -12,7 +13,7 @@
 #define SERVO_PIN 10
 
 // Controllable components
-AF_DCMotor rb_motor(RB_PIN), rf_motor(RF_PIN), lf_motor(LF_PIN), lb_motor(LB_PIN);
+AF_DCMotor rb_motor(RB_PIN, MOTOR12_64KHZ), rf_motor(RF_PIN, MOTOR12_64KHZ), lf_motor(LF_PIN, MOTOR12_64KHZ), lb_motor(LB_PIN, MOTOR12_64KHZ);
 Servo servoLook;
 
 void setup() {
@@ -36,9 +37,7 @@ void setup() {
 }
 
 void loop() {
-  // Simple test to go forward!!
-  rb_motor.run(FORWARD);
-  rf_motor.run(FORWARD);
-  lf_motor.run(FORWARD);
-  lb_motor.run(FORWARD);
+  // Turning back movement
+  CarMovement::turnRight(&rb_motor, &rf_motor, &lf_motor, &lb_motor);
+  CarMovement::turnRight(&rb_motor, &rf_motor, &lf_motor, &lb_motor);
 }

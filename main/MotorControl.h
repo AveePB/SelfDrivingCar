@@ -1,7 +1,6 @@
-#include <AFMotor.h>
-
 #ifndef MOTORCONTROL_H
 #define MOTORCONTROL_H
+#include <AFMotor.h>
 
 namespace CarMovement {
   // Variables
