@@ -56,7 +56,7 @@ namespace CarMovement {
     leftBack->run(FORWARD);
 
     // Keep turning (0.555s)
-    delay(555);
+    delay(465);
 
     // Stop movement
     CarMovement::stop(rightBack, rightFront, leftFront, leftBack);
